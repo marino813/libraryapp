@@ -1,0 +1,505 @@
+body {
+  margin: auto;
+  padding: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+.cardpages, .cardauthor {
+  margin: 5px;
+}
+
+.grid-container {
+  /* display: grid; */
+  background-color: #f3c221;
+  /* grid-template-columns: 1fr 3fr;
+  grid-template-rows: 150px 1fr; */
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  /* padding: 20px 0; */
+  font-size: 30px;
+  /* border-color: red;
+  border: 1px;
+  border-style: dashed; */
+}
+
+.header {
+  /* grid-column: 1 / 3;
+  grid-row: 1 / 2; */
+  z-index: 2;
+  position: sticky;
+  left:0;
+  right:0;
+  top:0;
+  height: 9vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: bisque;
+  box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+}
+
+.content {
+  min-height: 91vh;
+  background-color: bisque;
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  justify-content: space-evenly;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.card {
+    width: 300px;
+    height: fit-content;
+    margin: 10px;
+    background-color: white;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+  }
+  .card:hover .card__caption {
+    top: 52%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, .6);
+    padding-bottom: 40px;
+  }
+  .card:hover .card__image {
+    transform: translateY(-8px);
+    opacity:  rgba(0, 0, 0, 0.3);
+  }
+  .card:hover .card__thumb::after {
+    top: 0;
+  }
+  .card:hover .card__snippet {
+    margin: 20px 0;
+  }
+  .card__thumb {
+    position: relative;
+    max-height: 400px;
+    overflow: hidden;
+    margin: 0px;
+  }
+  @media (min-width: 1024px) {
+    .card__thumb {
+      max-height: 445px;
+    }
+  }
+  .card__thumb::after {
+    position: absolute;
+    top: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 40%, rgba(255, 255, 255, 0) 100%);
+    transition: 0.3s;
+  }
+  @media (min-width: 1024px) {
+    .card__thumb::after {
+      top: calc(100% - 140px);
+    }
+  }
+  .card__image {
+    transition: 0.5s ease-in-out;
+    width: 100%;
+
+  }
+  .card__caption {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    padding: 0 20px;
+    color: white;
+    transform: translateY(-50%);
+    text-align: center;
+    transition: 0.3s;
+  }
+  @media (min-width: 1024px) {
+    .card__caption {
+      top: calc(100%);
+      transform: unset;
+    }
+  }
+  .card__title {
+    display: -webkit-box;
+    max-height: 85px;
+    overflow: hidden;
+    font-family: "Playfair Display", serif;
+    font-size: 23px;
+    line-height: 28px;
+    text-shadow: 0px 1px 5px black;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+  .card__snippet {
+    display: -webkit-box;
+    max-height: 150px;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+    transition: 0.5s ease-in-out;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    margin: 5px;
+  }
+  @media (min-width: 1024px) {
+    .card__snippet {
+      margin: 5px 0;
+    }
+  }
+  .card__button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    border: 1px solid white;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: 0.3s;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .card__button:hover {
+    color: black;
+    background-color: white;
+}
+
+.button-74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  height: 75px;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-74:hover {
+  background-color: #fff;
+}
+
+.button-74:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+.modal {
+  z-index: 3 !important;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  max-width: 315px;
+  max-width: 315px;
+  margin-top: 10% !important;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;;
+  border: 1px solid #888;
+  font-family: "Roboto", sans-serif;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+}
+
+#savebookbutton {
+  width: 100%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #422800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* form starting stylings ------------------------------- */
+#readtoggle.group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.group.bookpages {
+  margin-bottom: 10px;
+}
+
+.group { 
+  position:relative; 
+  margin-bottom:45px; 
+}
+
+input {
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+#formlabel {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ #formlabel, input:valid ~ #formlabel 		{
+  top:-20px;
+  font-size:14px;
+  color:#422800;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#422800; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%;
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#422800; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#422800; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#422800; }
+  to 	{ width:0; background:transparent; }
+}
+
+
+/* Switch starts here */
+.rocker {
+  display: inline-block;
+  position: relative;
+  /*
+  SIZE OF SWITCH
+  ==============
+  All sizes are in em - therefore
+  changing the font-size here
+  will change the size of the switch.
+  See .rocker-small below as example.
+  */
+  font-size: 2em;
+  text-align: center;
+  color: #888;
+  width: 7em;
+  height: 4em;
+  overflow: hidden;
+  border-bottom: 0.5em solid #eee;
+  margin: 0px;
+}
+
+.rocker-small {
+  font-size: 0.95em; /* Sizes the switch */
+  margin: 1em;
+}
+
+.rocker::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #999;
+  border: 0.5em solid #eee;
+  border-bottom: 0;
+}
+
+.rocker input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-left,
+.switch-right {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  width: 3em;
+  transition: 0.2s;
+}
+
+.switch-left {
+  height: 2.4em;
+  width: 2.75em;
+  left: 0.85em;
+  bottom: 0.4em;
+  background-color: #ddd;
+  transform: rotate(15deg) skewX(15deg);
+}
+
+.switch-right {
+  right: 0.5em;
+  bottom: 0;
+  background-color: #bd5757;
+  color: #fff;
+}
+
+.switch-left::before,
+.switch-right::before {
+  content: "";
+  position: absolute;
+  width: 0.4em;
+  height: 2.45em;
+  bottom: -0.45em;
+  background-color: #ccc;
+  transform: skewY(-65deg);
+}
+
+.switch-left::before {
+  left: -0.4em;
+}
+
+.switch-right::before {
+  right: -0.375em;
+  background-color: transparent;
+  transform: skewY(65deg);
+}
+
+input:checked + .switch-left {
+  background-color: #0084d0;
+  color: #fff;
+  bottom: 0px;
+  left: 0.5em;
+  height: 2.5em;
+  width: 3em;
+  transform: rotate(0deg) skewX(0deg);
+}
+
+input:checked + .switch-left::before {
+  background-color: transparent;
+  width: 3.0833em;
+}
+
+input:checked + .switch-left + .switch-right {
+  background-color: #ddd;
+  color: #888;
+  bottom: 0.4em;
+  right: 0.8em;
+  height: 2.4em;
+  width: 2.75em;
+  transform: rotate(-15deg) skewX(-15deg);
+}
+
+input:checked + .switch-left + .switch-right::before {
+  background-color: #ccc;
+}
+
+/* Keyboard Users */
+input:focus + .switch-left {
+  color: #888;
+}
+
+input:checked:focus + .switch-left {
+  color: #fff;
+}
+
+input:focus + .switch-left + .switch-right {
+  color: #fff;
+}
+
+input:checked:focus + .switch-left + .switch-right {
+  color: #888;
+}

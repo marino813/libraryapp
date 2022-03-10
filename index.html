@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-US">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Whatcha reading?</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="screen">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap');
+    </style>
+    <script src="https://kit.fontawesome.com/7023df1715.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content"><span class="close">&times;</span>
+        <br><br>
+        
+        <form>
+            <div class="group booktitle">      
+                <input type="text" id="titleof" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label id="formlabel">Title</label>
+            </div>
+                
+            <div class="group bookauthor">      
+                <input type="text" id="authorof" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label id="formlabel">Author</label>
+            </div>
+
+            <div class="group bookhandle">      
+                <input type="text" id="handledescription" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label id="formlabel">Brief Description</label>
+            </div>
+
+            <div class="group coverlink">      
+                <input type="url" id="linktocover" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label id="formlabel">Cover Link</label>
+            </div>
+
+            <div class="group bookpages">      
+                <input type="number" id="pagescount" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label id="formlabel">Pages</label>
+            </div>
+            
+            <div class="group" id="readtoggle">
+            <label class="rocker rocker-small">
+                <input id="readcheck" type="checkbox" checked>
+                <span class="switch-left">Read</span>
+                <span class="switch-right">Not Read</span>
+            </label>
+            </div>
+
+            <button class="button-74" id="savebookbutton" role="button" type="submit">Save</button>
+        </form>
+
+    </div>
+  
+</div>
+<div class="header">
+    <button class="button-74" id="addbookbutton" role="button">Add Book</button>
+</div>
+
+<div class="content" id="contentArea">
+    <!-- <div class="card">
+        <figure class="card__thumb">
+            <img src="https://images-na.ssl-images-amazon.com/images/I/5100db9PITL.jpg" alt="Picture by Kyle Cottrell" class="card__image">
+            <figcaption class="card__caption">
+                <h2 class="card__title">Yogi: A Life Behind the Mask</h2>
+                <h3 class="cardauthor">Author: Jon Pessah</h3>
+                <h3 class="cardpages">Page Count: 576</h3>
+                <div class="card__snippet"><p>NASA released a list of 219 new “planet candidates” discovered by the Kepler space telescope, 10 of which are similar to Earths size and may be habitable by other life forms.
+                </p>
+                </div>
+                <label class="rocker rocker-small cardrocker">
+                    <input id="readcheck" type="checkbox" checked>
+                    <span class="switch-left">Read</span>
+                    <span class="switch-right">Not Read</span>
+                </label>
+                <button role="button" id="removeBook" class="card__button">Remove Book</button>
+            </figcaption>
+        </figure> -->
+    </div>
+
+</div>
+<script src="js/core.js"></script>
+</body> 
+ 
+</html>
